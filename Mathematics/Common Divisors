@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+int a[1000001];
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    int n,maxa=0;
+    cin>>n;
+    for (int i=1,x;i<=n;i++) {
+        cin>>x;
+        a[x]++;
+        maxa=max(maxa,x);
+    }
+    for (int i=maxa;i>=1;i--){
+        int cnt=0;
+        for (int j=i;j<=maxa;j+=i){
+            cnt+=a[j];
+            if (cnt>=2) return cout<<i,0;
+        }
+    }
+}
