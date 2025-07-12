@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+const int MOD = 1e9 + 7;
+int d[1000003];
+int main() {
+    int n;
+    cin>>n;
+    d[0]=1;
+    for (int i=1;i<=n;i++)
+      for (int j=1;j<=6;j++)
+        if (j<=i)
+          d[i]=(d[i]+d[i-j])%MOD;
+    cout<<d[n];
+}
